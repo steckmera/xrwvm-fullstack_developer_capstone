@@ -28,9 +28,9 @@ SECRET_KEY =\
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'https://smera-8000.theiadockernext-0-labs-prod-']
+ALLOWED_HOSTS = ['localhost', 'https://localhost']
 CSRF_TRUSTED_ORIGINS = [
-    'https://smera-8000.theiadockernext-0-labs-prod-'
+    'https://localhost'
 ]
 
 
