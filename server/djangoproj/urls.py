@@ -21,7 +21,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('postreview/<int:dealer_id>',
-         TemplateView.as_view(template_name="index.html")),    
+         TemplateView.as_view(template_name="index.html")),
     path('dealer/<int:dealer_id>',
          TemplateView.as_view(template_name="index.html")),
     path('dealers/',
@@ -29,7 +29,7 @@ urlpatterns = [
     path('register/',
          TemplateView.as_view(template_name="index.html")),
     path('login/',
-         TemplateView.as_view(template_name="index.html")),    
+         TemplateView.as_view(template_name="index.html")),
     path('about/',
          TemplateView.as_view(template_name="About.html")),
     path('contact/',
