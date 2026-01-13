@@ -65,7 +65,7 @@ def logout_user(request):
 # Create a `registration` view to handle sign up request
 @csrf_exempt
 def registration(request):
-    context = {}
+    # context = {}
     # Load JSON data from the request body
     data = json.loads(request.body)
     username = data['userName']
@@ -74,7 +74,7 @@ def registration(request):
     last_name = data['lastName']
     email = data['email']
     username_exist = False
-    email_exist = False
+    # email_exist = False
     try:
         # Check if user already exists
         User.objects.get(username=username)
@@ -86,7 +86,8 @@ def registration(request):
     # If it is a new user
     if not username_exist:
         # Create user in auth_user table
-        user = User.objects.create_user(username=username, first_name=first_name,
+        user = User.objects.create_user(username=username,
+                                        first_name=first_name,
                                         last_name=last_name,password=password, email=email)
         # Login the user and redirect to list page
         login(request, user)
@@ -97,10 +98,8 @@ def registration(request):
         return JsonResponse(data)
 
 
-#Update the `get_dealerships` render list of dealerships all by default, 
-# particular state if state is passed
 def get_dealerships(request, state="All"):
-    if(state == "All"):
+    if (state == "All"):
         endpoint = "/fetchDealers"
     else:
         endpoint = "/fetchDealers/"+state
@@ -109,7 +108,6 @@ def get_dealerships(request, state="All"):
 
 
 def get_dealer_reviews(request, dealer_id):
-    # if dealer id has been provided
     if (dealer_id):
         endpoint = "/fetchReviews/dealer/" + str(dealer_id)
         reviews = get_request(endpoint)
